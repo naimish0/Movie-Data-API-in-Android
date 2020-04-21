@@ -1,0 +1,19 @@
+package com.example.mountyapp
+
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface Api {
+    @GET("movie/top_rated")
+    fun getTopRatedMovies(
+        @Query("api_key") apiKey: String = "Paste Your API_Key here",
+        @Query("page") page: Int
+    ): Call<GetMoviesResponse>
+
+    @GET("movie/upcoming")
+    fun getUpcomingMovies(
+        @Query("api_key") apiKey: String = "Paste Your API_Key here",
+        @Query("page") page: Int
+    ): Call<GetMoviesResponse>
+}
